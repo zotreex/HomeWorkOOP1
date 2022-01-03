@@ -50,6 +50,12 @@ namespace HomeWorkOOP1
 
         public void MarrriedOn(Person married)
         {
+            if(this.sex == married.sex)
+            {
+                Console.WriteLine("not available in your country");
+                return;
+            }
+
             if (this.partner == null)
             {
                 this.partner = married;
@@ -67,6 +73,11 @@ namespace HomeWorkOOP1
 
         public void SetChild(Person child)
         {
+            if (this == child)
+            {
+                Console.WriteLine("can't make yourself a child");
+                return;
+            }
 
             if (this.child != null)
             {

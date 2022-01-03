@@ -8,10 +8,16 @@ namespace HomeWorkOOP1
     {
         static void Main(string[] args)
         {
-            Person me = new Person("Zhenya", Sex.male);
-            Person father = new Person("Dima", Sex.male);
-            Person mother = new Person("Kate", Sex.female);
-            father.MarrriedOn(mother);
+            Person person1 = new Person("Zhenya", Sex.male);
+            Person person2 = new Person("Dima", Sex.male);
+            Person person3 = new Person("Kate", Sex.female);
+
+            person2.MarrriedOn(person3);
+            person2.SetChild(person1);
+
+            Console.WriteLine(person1.GetParentsNames());
+
+            /*father.MarrriedOn(mother);
             father.SetChild(me);
 
             Person grandFatherByFather = new Person("Alex", Sex.male);
@@ -29,7 +35,7 @@ namespace HomeWorkOOP1
             grandFatherByMother.SetChild(mother);
             me.PrintUncles();
             me.PrintCusins();
-            Console.WriteLine(me.GetParentsNames());
+            Console.WriteLine(me.GetParentsNames());*/
 
         }
     }
