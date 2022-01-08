@@ -50,7 +50,12 @@ namespace HomeWorkOOP1
 
         public void MarrriedOn(Person married)
         {
-            if(this.sex == married.sex)
+            if (!isValid(married))
+            {
+                return;
+            }
+
+            if (this.sex == married.sex)
             {
                 Console.WriteLine("not available in your country");
                 return;
@@ -73,11 +78,13 @@ namespace HomeWorkOOP1
 
         public void SetChild(Person child)
         {
-            if (this == child)
+            if (!isValid(child))
             {
-                Console.WriteLine("can't make yourself a child");
                 return;
             }
+
+            if (child.dad != null || child.mom != null)
+                return;
 
             if (this.child != null)
             {
@@ -302,6 +309,39 @@ namespace HomeWorkOOP1
                 Console.WriteLine("not found");
 
             }
+        }
+
+        private bool isValid(Person comparedPerson)
+        {
+            if (this == comparedPerson)
+            {
+                Console.WriteLine("validate failed");
+                return false;
+            }
+
+            if(!isFamilyValid(this, comparedPerson))
+                return false;
+
+            return true;
+        }
+
+        private bool isFamilyValid(Person person, Person complarePerson)
+        {
+            bool validation = true;
+
+            if (person.dad == complarePerson || person.mom == complarePerson)
+                validation = false;
+
+            if (person.child?.Contains(complarePerson) ?? false) validation = false;
+
+            if(person.dad != null)
+                if(!isFamilyValid(person.dad, complarePerson)) validation = false;
+
+            if (person.mom != null) 
+                if (!isFamilyValid(person.mom, complarePerson)) validation = false;
+
+            if (!validation) Console.WriteLine("family validation Failded");
+            return validation;
         }
     }
 

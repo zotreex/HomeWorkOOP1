@@ -8,14 +8,19 @@ namespace HomeWorkOOP1
     {
         static void Main(string[] args)
         {
-            Person person1 = new Person("Zhenya", Sex.male);
-            Person person2 = new Person("Dima", Sex.male);
-            Person person3 = new Person("Kate", Sex.female);
+            Person personGrandDad = new Person("person", Sex.male);
+            Person personDad = new Person("person1", Sex.male);
+            Person personMom = new Person("person2", Sex.female);
 
-            person2.MarrriedOn(person3);
-            person2.SetChild(person1);
+            personDad.MarrriedOn(personMom);
 
-            Console.WriteLine(person1.GetParentsNames());
+            Person me = new Person("person2", Sex.male);
+
+            personMom.SetChild(me);
+
+            me.SetChild(personMom);
+
+            Console.WriteLine(me.GetParentsNames());
 
             /*father.MarrriedOn(mother);
             father.SetChild(me);
