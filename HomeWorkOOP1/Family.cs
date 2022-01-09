@@ -55,6 +55,9 @@ namespace HomeWorkOOP1
                 return;
             }
 
+            if (!isChildValidation(this, married))
+                return;
+
             if (this.sex == married.sex)
             {
                 Console.WriteLine("not available in your country");
@@ -341,6 +344,25 @@ namespace HomeWorkOOP1
                 if (!isFamilyValid(person.mom, complarePerson)) validation = false;
 
             if (!validation) Console.WriteLine("family validation Failded");
+            return validation;
+        }
+
+        private bool isChildValidation(Person person, Person complarePerson)
+        {
+            bool validation = true;
+
+            if(person == complarePerson) validation = false;
+
+            foreach (Person child in person.child ?? new List<Person>())
+            {
+                if (!isChildValidation(child, complarePerson)) validation = false;
+            }
+
+            foreach (Person child in complarePerson.child ?? new List<Person>())
+            {
+                if (!isChildValidation(child, person)) validation = false;
+            }
+
             return validation;
         }
     }
