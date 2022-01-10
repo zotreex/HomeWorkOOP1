@@ -147,7 +147,7 @@ namespace HomeWorkOOP1
         public string GetParentsNames()
 
         {
-            return this.dad.name + " " + this.mom.name;
+            return this.dad?.name + " " + this.mom?.name;
         }
 
         private List<Person> FindBloodUncles()
@@ -167,7 +167,7 @@ namespace HomeWorkOOP1
                     }
                 }
 
-                if (this.mom.dad != null && this.mom != null)
+                if (this.mom?.dad != null && this?.mom != null)
                 {
                     foreach (Person uncle in this.mom.dad.child)
                     {
@@ -198,7 +198,7 @@ namespace HomeWorkOOP1
                     }
                 }
 
-                if (this.mom.mom != null && this.mom != null)
+                if (this.mom?.mom != null && this?.mom != null)
                 {
                     foreach (Person uncle in this.mom.mom.child)
                     {
