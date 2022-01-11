@@ -251,8 +251,10 @@ namespace HomeWorkOOP1
             List<Person> laws_list = new List<Person>();
             if (this.partner != null)
             {
-                laws_list.Add(this.partner.dad);
-                laws_list.Add(this.partner.mom);
+                if(this.partner.dad != null)
+                    laws_list.Add(this.partner.dad);
+                if(this.partner.mom != null)
+                    laws_list.Add(this.partner.mom);
             }
             return laws_list;
 

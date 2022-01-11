@@ -9,19 +9,10 @@ namespace HomeWorkOOP1
         static void Main(string[] args)
         {
             var person = new Person("person", Sex.male);
-            var parent = new Person("parent", Sex.female);
-            parent.SetChild(person);
+            var person2 = new Person("person2", Sex.female);
+            person.MarrriedOn(person2);
 
-            var grandparent = new Person("grandparent", Sex.male);
-            grandparent.SetChild(parent);
-
-            var uncle = new Person("uncle", Sex.male);
-            grandparent.SetChild(uncle);
-
-            var cousin = new Person("cousin", Sex.male);
-            uncle.SetChild(cousin);
-
-            person.PrintCusins(); // ничего не выводит
+            person.PrintLaws();
 
             /*father.MarrriedOn(mother);
             father.SetChild(me);
