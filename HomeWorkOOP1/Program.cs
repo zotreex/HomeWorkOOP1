@@ -9,7 +9,7 @@ namespace HomeWorkOOP1
         static void Main(string[] args)
         {
             var person = new Person("name", Sex.male);
-            var parent = new Person("name1", Sex.male);
+            var parent = new Person("name1", Sex.female);
             parent.SetChild(person);
             Console.WriteLine(person.GetParentsNames()); // не падает с ошибкой
             person.GetUncles();  // не падает с ошибкой

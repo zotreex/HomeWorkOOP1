@@ -155,7 +155,7 @@ namespace HomeWorkOOP1
             List<Person> uncle_list = new List<Person>();
             if (this.dad != null || this.mom != null)
             {
-                if (this.dad.dad != null)
+                if (this.dad?.dad != null)
                 {
                     foreach (Person uncle in this.dad.dad.child)
                     {
@@ -179,7 +179,7 @@ namespace HomeWorkOOP1
                 }
 
 
-                if (this.dad.mom != null && this.dad != null)
+                if (this.dad?.mom != null && this.dad != null)
                 {
                     foreach (Person uncle in this.dad.mom.child)
                     {
