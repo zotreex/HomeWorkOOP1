@@ -8,12 +8,20 @@ namespace HomeWorkOOP1
     {
         static void Main(string[] args)
         {
-            var person = new Person("name", Sex.male);
-            var parent = new Person("name1", Sex.female);
+            var person = new Person("person", Sex.male);
+            var parent = new Person("parent", Sex.female);
             parent.SetChild(person);
-            Console.WriteLine(person.GetParentsNames()); // не падает с ошибкой
-            person.GetUncles();  // не падает с ошибкой
-            person.GetCusins();  // не падает с ошибкой
+
+            var grandparent = new Person("grandparent", Sex.male);
+            grandparent.SetChild(parent);
+
+            var uncle = new Person("uncle", Sex.male);
+            grandparent.SetChild(uncle);
+
+            var cousin = new Person("cousin", Sex.male);
+            uncle.SetChild(cousin);
+
+            person.PrintCusins(); // ничего не выводит
 
             /*father.MarrriedOn(mother);
             father.SetChild(me);

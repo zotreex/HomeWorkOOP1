@@ -274,7 +274,7 @@ namespace HomeWorkOOP1
             Person LastUncle = null;
             foreach (Person uncle in Uncles_list)
             {
-                if (uncle.child != null && LastUncle != uncle.partner)
+                if (uncle.child != null && (LastUncle != uncle.partner || LastUncle == null))
                 {
                     cusin_list.AddRange(uncle.child);
                     LastUncle = uncle;
